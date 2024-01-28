@@ -1,0 +1,13 @@
+package com.example.databasemigrationflyway;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class DatabaseMigrationFlywayApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

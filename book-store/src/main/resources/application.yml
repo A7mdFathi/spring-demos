@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/book_store
+    username: ahmed
+    password: ahmed
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: mysql
+    # database-platform: org.hibernate.dialect.
+
+application:
+  security:
+    jwt:
+      secret-key: 20b23c5749f541add1c60d022dc93a20ad3620d1027fc3cea7a5e1614e8699b6
+      expiration: 86400000 #one day
+      refresh-token:
+        expiration: 604800000 #7 days
+
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security: DEBUG  # Logging level for Spring Securityework:
+    org.springframework.web: DEBUG       # Logging level for Spring WebDEBUG
+    org.hibernate.SQL: DEBUG  
+    
