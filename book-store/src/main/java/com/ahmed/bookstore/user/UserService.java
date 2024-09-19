@@ -3,6 +3,7 @@ package com.ahmed.bookstore.user;
 import java.security.Principal;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 public class UserService {
 
     private final PasswordEncoder passwordEncoder;
-
+    private  final UserDTOMapper userDTOMapper;
     private final UserRepository userRepository;
 
     public void changePassword(ChangePasswordRequest request,
@@ -36,5 +37,10 @@ public class UserService {
         ));
 
         userRepository.save(user);
+    }
+
+    public  UserDTO getUser(UserDetails connectedUser) {
+        User current = (User) connectedUser;
+        return userDTOMapper.apply(current);
     }
 }
